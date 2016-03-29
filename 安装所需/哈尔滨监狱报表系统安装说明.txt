@@ -1,0 +1,15 @@
+﻿哈尔滨监狱报表系统安装说明
+安装需求：
+apache 2.4 64位
+python3.5
+mod_wsgi 64位
+vc11 64位
+
+
+
+
+步骤
+1、pip install flask
+2、pip install bootstrap
+3、db.py  connect_db() sqlite3.connect('绝对路径F:\hebjybb\db\database.db')
+4、wsgi.wsgi 修改路径sys.path.insert(0,'f:/hebjybb')

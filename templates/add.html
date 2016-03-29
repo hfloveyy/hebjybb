@@ -1,0 +1,85 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}哈尔滨监狱{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">哈尔滨监狱</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">主页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% block content %}
+<div class="container">
+    <div class="page-header">
+            {% if not session.logged_in %}
+            <a href="{{ url_for('login') }}">log in</a>
+        {% else %}
+            <a href="{{ url_for('logout') }}">退出登录</a>
+        {% endif %}
+  {% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('add') }}" method="post">
+    <dl>
+      <dt>监区:
+      <dd>
+      <select name="jianqu">
+        <option style="width:100px" >一监区</option>
+        <option style="width:100px" >二监区</option>
+        <option style="width:100px" >三监区</option>
+        <option style="width:100px" >四监区</option>
+        <option style="width:100px" >五监区</option>
+        <option style="width:100px" >六监区</option>
+        <option style="width:100px" >七监区</option>
+        <option style="width:100px" >八监区</option>
+        <option style="width:100px" >九监区</option>
+        <option style="width:100px" >十监区</option>
+        <option style="width:100px" >十一监区</option>
+        <option style="width:100px" >十二监区</option>
+        <option style="width:100px" >后勤监区</option>
+        <option style="width:100px" >外籍监区</option>
+        <option style="width:100px" >集训监区</option>
+        <option style="width:100px" >出监监区</option>
+        <option style="width:100px" >病犯监区</option>
+        <option style="width:100px" >禁闭、严管</option>
+        <option style="width:100px" >高戒备</option>
+        <option style="width:100px" >改造业务科室</option>
+      </select>
+      <dt>值班领导:
+      <dd>
+      <input type="text" name="zhibanlingdao" style="width:100px" required>
+      <dt>白天在岗民警数:
+      <dd>
+      <input type="text" name="baitianzaigang" style="width:100px" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >
+      <dt>夜间值班民警数:
+      <dd>
+      <input type="text" name="yejianzhiban" style="width:100px" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >
+      <dt>在册罪犯人数:
+      <dd>
+      <input type="text" name="zaice" style="width:100px" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >
+      <dt>实有罪犯人数:
+      <dd>
+      <input type="text" name="shiyou" style="width:100px" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >
+      <dt>出工罪犯人数:
+      <dd>
+      <input type="text" name="chugong" style="width:100px" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >
+      <dt>填表人:
+      <dd>
+      <input type="text" name="beizhu" style="width:100px" >
+      <dd><input type="submit" value="上报">
+    </dl>
+  </form>
+    </div>
+</div>
+{% endblock %}

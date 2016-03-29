@@ -1,0 +1,105 @@
+
+{% extends "bootstrap/base.html" %}
+{% block title %}哈尔滨监狱{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">哈尔滨监狱</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">主页</a></li>
+                <li><a href="/add">报表</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        
+<table class="table table-bordered" align="center" valign="middle">
+   <caption><h2>哈尔滨监狱指挥中心信息统计汇总表</h2></caption>
+   <thead>
+      <tr>
+
+         <th>监区</th>
+         <th>值班领导</th>
+         <th>白天在岗民警数</th>
+         <th>夜间值班民警数</th>
+         <th>在册罪犯人数</th>
+         <th>实有罪犯人数</th>
+         <th>出工罪犯人数</th>
+         <th>填表人</th>
+         <th>上报时间</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+      {% for one in number:%}
+            {%for some in one:%}
+
+         <td>{{some[1]}}</td>
+         <td>{{some[2]}}</td>
+         <td>{{some[3]}}</td>
+         <td>{{some[4]}}</td>
+         <td>{{some[5]}}</td>
+         <td>{{some[6]}}</td>
+         <td>{{some[7]}}</td>
+         <td>{{some[8]}}</td>
+         <td>{{some[9]}}</td>
+            {% endfor%}
+            </tr>
+      {% endfor%}
+      
+
+      <tr>
+      <td>合计</td>
+      <td></td>
+      {% for some in total:%}
+         <td>{{some}}</td>
+
+      {% endfor%}
+      <td></td>
+      </tr>
+
+      <tr>
+
+         <th>看守大队</th>
+         <th>大门</th>
+         <th></th>
+         <th>二门</th>
+         <th></th>
+         <th>三门</th>
+         <th></th>
+         <th>填表人</th>
+         <th>上报时间</th>
+      </tr>
+      <tr>
+      {% for some in kanshou:%}
+          <td>{{some[1]}}</td>
+          <td>{{some[2]}}</td>
+          <td></td>
+          <td>{{some[3]}}</td>
+          <td></td>
+          <td>{{some[4]}}</td>
+          <td></td>
+          <td>{{some[5]}}</td>
+          <td>{{some[6]}}</td>
+      {% endfor%}  
+      </tr>
+      <tr>注：各押犯单位每日上班9:30之前将本单位信息上报至监狱网站，由指挥中心办公室汇总。</tr>
+   </tbody>
+</table>
+    </div>
+</div>
+{% endblock %}

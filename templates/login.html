@@ -1,0 +1,65 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}哈尔滨监狱{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">哈尔滨监狱</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">主页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        
+        <h2>登录</h2>
+  {% if error %}<p class="error"><strong>错误:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('login') }}" method="post">
+    <dl>
+      <dt>监区、科室、看守大队:
+      <dd>
+      <select name="username">
+        <option style="width:100px" value="JIANQU_1">一监区</option>
+        <option style="width:100px" value="JIANQU_2">二监区</option>
+        <option style="width:100px" value="JIANQU_3">三监区</option>
+        <option style="width:100px" value="JIANQU_4">四监区</option>
+        <option style="width:100px" value="JIANQU_5">五监区</option>
+        <option style="width:100px" value="JIANQU_6">六监区</option>
+        <option style="width:100px" value="JIANQU_7">七监区</option>
+        <option style="width:100px" value="JIANQU_8">八监区</option>
+        <option style="width:100px" value="JIANQU_9">九监区</option>
+        <option style="width:100px" value="JIANQU_10">十监区</option>
+        <option style="width:100px" value="JIANQU_11">十一监区</option>
+        <option style="width:100px" value="JIANQU_12">十二监区</option>
+        <option style="width:100px" value="JIANQU_13">后勤监区</option>
+        <option style="width:100px" value="JIANQU_14">外籍监区</option>
+        <option style="width:100px" value="JIANQU_15">集训监区</option>
+        <option style="width:100px" value="JIANQU_16">出监监区</option>
+        <option style="width:100px" value="JIANQU_17">病犯监区</option>
+        <option style="width:100px" value="JIANQU_18">禁闭、严管</option>
+        <option style="width:100px" value="JIANQU_19">高戒备</option>
+        <option style="width:100px" value="JIANQU_20">改造业务科室</option>
+        <option style="width:100px" value="JIANQU_21">看守大队</option>
+      </select>
+      <dd> 
+      <dt>密码:
+      <dd><input type="password" name="password">
+      <dd><input type="submit" value="登录">
+    </dl>
+  </form>
+    </div>
+</div>
+{% endblock %}

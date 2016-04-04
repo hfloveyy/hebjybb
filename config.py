@@ -54,6 +54,6 @@ JIANQU_19 = '1'
 
 JIANQU_20 = '1'
 
-JIANQU_21 = '1'
+JIANQU21 = '1'
 
 

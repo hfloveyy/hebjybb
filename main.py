@@ -132,7 +132,7 @@ def login():
         if app.config[str(username)] != password:
             error = u'错误密码！'
         else:
-            if username in 'JIANQU_21':
+            if username in 'JIANQU21':
                 session['logged_in'] = False
                 return render_template('addks.html', error=error)
             else:
